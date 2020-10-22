@@ -7,7 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     image: luquatic/laravel_app
-    container_name: app
     restart: always
     working_dir: /var/www
     volumes:
@@ -19,14 +18,11 @@ services:
     #   memory: 300M
     tty: true
     networks:
-      front-end:
-      database:
-      back-end:
+      - Docker Virtual Switch
 
   # nginx service
   nginx:
     image: nginx:alpine
-    container_name: nginx
     restart: unless-stopped
     ports: 
       - "80:80"
@@ -39,16 +35,19 @@ services:
     # limits:
     #   cpus: '0.50'
     #   memory: 300M
+    networks:
+      - Docker Virtual Switch
     tty: true
 
   # database service
   db:
     image: mariadb/server:10.3
-    container_name: mariadb
     restart: on-failure
     ports:
       - "3306:3306"
     environment: 
       MYSQL_DATABASE: eurovision
       MYSQL_ROOT_PASSWORD: root
+    networks:
+      - Docker Virtual Switch
     tty: true
