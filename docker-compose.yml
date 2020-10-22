@@ -19,6 +19,8 @@ services:
         limits:
           cpus: "0.2"
           memory: 200M
+      restart_policy:
+        condition: on-failure
     tty: true
 
   # nginx service
@@ -42,6 +44,8 @@ services:
         limits:
           cpus: "0.2"
           memory: 200M
+      restart_policy:
+        condition: on-failure
     tty: true
 
   # database service
