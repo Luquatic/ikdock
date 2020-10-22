@@ -42,13 +42,6 @@ services:
     # limits:
     #   cpus: '0.50'
     #   memory: 300M
-    networks:
-      front-end:
-        external: true
-      database:
-        external: true
-      back-end:
-        external: true
     tty: true
 
   # database service
@@ -61,11 +54,4 @@ services:
     environment: 
       MYSQL_DATABASE: eurovision
       MYSQL_ROOT_PASSWORD: root
-    networks:
-      front-end:
-        external: true
-      database:
-        external: true
-      back-end:
-        external: true
     tty: true
