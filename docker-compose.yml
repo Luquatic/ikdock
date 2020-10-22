@@ -18,6 +18,10 @@ services:
       cpus: '0.50'
       memory: 300M
     tty: true
+    networks:
+      front-end:
+      database:
+      back-end:
 
   # nginx service
   nginx:
@@ -35,6 +39,10 @@ services:
     limits:
       cpus: '0.50'
       memory: 300M
+    networks:
+      front-end:
+      database:
+      back-end:
     tty: true
 
   # database service
@@ -47,4 +55,8 @@ services:
     environment: 
       MYSQL_DATABASE: eurovision
       MYSQL_ROOT_PASSWORD: root
+    networks:
+      front-end:
+      database:
+      back-end:
     tty: true
