@@ -20,7 +20,6 @@ services:
     tty: true
     networks:
       front-end:
-        external: true
       database:
       back-end:
 
