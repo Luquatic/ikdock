@@ -20,8 +20,11 @@ services:
     tty: true
     networks:
       front-end:
+        external: true
       database:
+        external: true
       back-end:
+        external: true
 
   # nginx service
   nginx:
@@ -41,8 +44,11 @@ services:
     #   memory: 300M
     networks:
       front-end:
+        external: true
       database:
+        external: true
       back-end:
+        external: true
     tty: true
 
   # database service
@@ -57,6 +63,9 @@ services:
       MYSQL_ROOT_PASSWORD: root
     networks:
       front-end:
+        external: true
       database:
+        external: true
       back-end:
+        external: true
     tty: true
