@@ -17,11 +17,6 @@ services:
     #   cpus: '0.50'
     #   memory: 300M
     tty: true
-    networks:
-      front-end:
-      database:
-      back-end:
-        external: true
 
   # nginx service
   nginx:
