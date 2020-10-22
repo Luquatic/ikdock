@@ -22,7 +22,7 @@ services:
       front-end:
         external: true
       database:
-        external: true
+      back-end:
 
   # nginx service
   nginx:
