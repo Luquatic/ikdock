@@ -1,0 +1,44 @@
+version: '3.8'
+services: 
+
+  # php service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: luquatic/laravel_app
+    container_name: app
+    restart: always
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./php/www.conf:/usr/local/etc/php-fpm.d/site.conf
+    tty: true
+
+  # nginx service
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports: 
+      - "80:80"
+      - "8000:8000"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on: 
+      - app
+    tty: true
+
+  # database service
+  db:
+    image: mariadb/server:10.3
+    container_name: mariadb
+    restart: on-failure
+    ports:
+      - "3306:3306"
+    environment: 
+      MYSQL_DATABASE: eurovision
+      MYSQL_ROOT_PASSWORD: root
+    tty: true

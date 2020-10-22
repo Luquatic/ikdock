@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  height: 75vh;
+  width: 1140px;
+  margin: 0 auto;
+  padding: 40px;
+}
