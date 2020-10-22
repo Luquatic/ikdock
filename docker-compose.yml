@@ -18,7 +18,10 @@ services:
     #   memory: 300M
     tty: true
     networks:
-      - Docker Virtual Switch
+      front-end:
+      database:
+      back-end:
+        external: true
 
   # nginx service
   nginx:
@@ -35,8 +38,6 @@ services:
     # limits:
     #   cpus: '0.50'
     #   memory: 300M
-    networks:
-      - Docker Virtual Switch
     tty: true
 
   # database service
@@ -48,6 +49,4 @@ services:
     environment: 
       MYSQL_DATABASE: eurovision
       MYSQL_ROOT_PASSWORD: root
-    networks:
-      - Docker Virtual Switch
     tty: true
