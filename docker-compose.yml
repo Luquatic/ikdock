@@ -14,6 +14,9 @@ services:
       - ./:/var/www
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./php/www.conf:/usr/local/etc/php-fpm.d/site.conf
+    limits:
+      cpus: '0.50'
+      memory: 300M
     tty: true
 
   # nginx service
@@ -29,6 +32,9 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     depends_on: 
       - app
+    limits:
+      cpus: '0.50'
+      memory: 300M
     tty: true
 
   # database service
