@@ -23,8 +23,6 @@ services:
         external: true
       database:
         external: true
-      back-end:
-        external: true
 
   # nginx service
   nginx:
