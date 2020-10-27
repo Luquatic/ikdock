@@ -11,11 +11,11 @@ class App extends React.Component {
     this.makeApiCall(2019);
   };
   makeApiCall = searchTerm => {
-    const BASE_URL = "http://localhost:8000/api/winners/";
+    const BASE_URL = "http://192.168.1.44:8000/api/winners/";
     axios.get(BASE_URL + searchTerm).then(res => {
       console.log(res);
       this.setState({
-        video: "http://localhost:8000" + res.data.winner.video
+        video: "http://192.168.1.44:8000" + res.data.winner.video
       });
     });
   };
