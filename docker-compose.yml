@@ -14,7 +14,7 @@ services:
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./php/www.conf:/usr/local/etc/php-fpm.d/site.conf
     deploy:
-      replicas: 2
+      # replicas: 2
       resources:
         limits:
           cpus: "0.2"
@@ -39,7 +39,7 @@ services:
     #   cpus: '0.50'
     #   memory: 300M
     deploy:
-      replicas: 2
+      # replicas: 2
       resources:
         limits:
           cpus: "0.2"
